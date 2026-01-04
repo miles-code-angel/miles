@@ -219,7 +219,7 @@ def get_default_wandb_args(test_file: str, run_name_prefix: str | None = None, r
         "--use-wandb "
         f"--wandb-project miles-{test_name} "
         f"--wandb-group {wandb_run_name} "
-        f"--wandb-key {wandb_key} "
+        f"--wandb-key '{wandb_key}' "
         "--disable-wandb-random-suffix "
     )
 
