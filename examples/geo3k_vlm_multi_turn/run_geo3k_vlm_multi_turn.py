@@ -142,6 +142,12 @@ def prepare():
         backend_args = fsdp_args
         megatron_model_type = None
 
+    ckpt_args = (
+        f"--hf-checkpoint /root/models/{MODEL_NAME} "
+        f"--save /root/models/{MODEL_NAME}_miles "
+        f"--load /root/models/{MODEL_NAME}_miles "
+    )
+
     train_args = (
         f"{ckpt_args} "
         f"{rollout_args} "
@@ -164,4 +170,3 @@ def prepare():
 
 if __name__ == "__main__":
     prepare()
-    execute()
