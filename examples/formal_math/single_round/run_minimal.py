@@ -96,10 +96,14 @@ misc_args = (
 )
 
 wandb_args = (
-    "--use-wandb "
-    "--wandb-project miles-formal-math-run-minimal "
-    "--wandb-group demo "
-    "--wandb-key ${WANDB_API_KEY} "
+    (
+        "--use-wandb "
+        "--wandb-project miles-formal-math-run-minimal "
+        "--wandb-group demo "
+        f"--wandb-key '{os.environ.get('WANDB_API_KEY', '')}' "
+    )
+    if os.environ.get("WANDB_API_KEY")
+    else ""
 )
 
 train_args = (
