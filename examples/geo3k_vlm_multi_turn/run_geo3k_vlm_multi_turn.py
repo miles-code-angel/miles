@@ -38,10 +38,6 @@ def prepare():
     if not os.path.exists(TRAIN_DATA_PATH):
         raise FileNotFoundError(f"Dataset not found. Expected local dataset at {TRAIN_DATA_PATH}; ")
 
-
-def execute():
-    ckpt_args = f"--hf-checkpoint /root/models/{MODEL_NAME} "
-
     wandb_args = (
         (
             "--use-wandb "
