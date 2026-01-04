@@ -47,9 +47,9 @@ def execute():
             "--use-wandb "
             "--wandb-project miles-dev "
             "--wandb-group geo3k_vlm_multi_turn "
-            f"--wandb-key '{os.environ.get('WANDB_API_KEY', '')}' "
+            f"--wandb-key '{wandb_api_key}' "
         )
-        if os.environ.get("WANDB_API_KEY")
+        if (wandb_api_key := os.environ.get("WANDB_API_KEY"))
         else ""
     )
 
