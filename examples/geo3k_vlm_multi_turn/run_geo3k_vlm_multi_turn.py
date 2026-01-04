@@ -38,6 +38,10 @@ def prepare():
     if not os.path.exists(TRAIN_DATA_PATH):
         raise FileNotFoundError(f"Dataset not found. Expected local dataset at {TRAIN_DATA_PATH}; ")
 
+
+def execute():
+    ckpt_args = f"--hf-checkpoint /root/models/{MODEL_NAME} "
+
     wandb_args = (
         (
             "--use-wandb "
@@ -142,12 +146,6 @@ def prepare():
         backend_args = fsdp_args
         megatron_model_type = None
 
-    ckpt_args = (
-        f"--hf-checkpoint /root/models/{MODEL_NAME} "
-        f"--save /root/models/{MODEL_NAME}_miles "
-        f"--load /root/models/{MODEL_NAME}_miles "
-    )
-
     train_args = (
         f"{ckpt_args} "
         f"{rollout_args} "
@@ -170,3 +168,4 @@ def prepare():
 
 if __name__ == "__main__":
     prepare()
+    execute()
